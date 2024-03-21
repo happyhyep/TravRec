@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9200B8BA2BABD801005085DC /* TravRecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8B92BABD801005085DC /* TravRecApp.swift */; };
+		9200B8BC2BABD801005085DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8BB2BABD801005085DC /* ContentView.swift */; };
+		9200B8BE2BABD804005085DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9200B8BD2BABD804005085DC /* Assets.xcassets */; };
+		9200B8C12BABD804005085DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9200B8C02BABD804005085DC /* Preview Assets.xcassets */; };
+		9200B8CB2BABD805005085DC /* TravRecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8CA2BABD805005085DC /* TravRecTests.swift */; };
+		9200B8D52BABD805005085DC /* TravRecUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8D42BABD805005085DC /* TravRecUITests.swift */; };
+		9200B8D72BABD805005085DC /* TravRecUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9200B8C72BABD805005085DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9200B8AE2BABD801005085DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9200B8B52BABD801005085DC;
+			remoteInfo = TravRec;
+		};
+		9200B8D12BABD805005085DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9200B8AE2BABD801005085DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9200B8B52BABD801005085DC;
+			remoteInfo = TravRec;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9200B8B62BABD801005085DC /* TravRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9200B8B92BABD801005085DC /* TravRecApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecApp.swift; sourceTree = "<group>"; };
+		9200B8BB2BABD801005085DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9200B8BD2BABD804005085DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9200B8C02BABD804005085DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9200B8C62BABD805005085DC /* TravRecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravRecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9200B8CA2BABD805005085DC /* TravRecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecTests.swift; sourceTree = "<group>"; };
+		9200B8D02BABD805005085DC /* TravRecUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravRecUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9200B8D42BABD805005085DC /* TravRecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITests.swift; sourceTree = "<group>"; };
+		9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9200B8B32BABD801005085DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8C32BABD805005085DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8CD2BABD805005085DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9200B8AD2BABD801005085DC = {
+			isa = PBXGroup;
+			children = (
+				9200B8B82BABD801005085DC /* TravRec */,
+				9200B8C92BABD805005085DC /* TravRecTests */,
+				9200B8D32BABD805005085DC /* TravRecUITests */,
+				9200B8B72BABD801005085DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9200B8B72BABD801005085DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8B62BABD801005085DC /* TravRec.app */,
+				9200B8C62BABD805005085DC /* TravRecTests.xctest */,
+				9200B8D02BABD805005085DC /* TravRecUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9200B8B82BABD801005085DC /* TravRec */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8B92BABD801005085DC /* TravRecApp.swift */,
+				9200B8BB2BABD801005085DC /* ContentView.swift */,
+				9200B8BD2BABD804005085DC /* Assets.xcassets */,
+				9200B8BF2BABD804005085DC /* Preview Content */,
+			);
+			path = TravRec;
+			sourceTree = "<group>";
+		};
+		9200B8BF2BABD804005085DC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8C02BABD804005085DC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9200B8C92BABD805005085DC /* TravRecTests */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8CA2BABD805005085DC /* TravRecTests.swift */,
+			);
+			path = TravRecTests;
+			sourceTree = "<group>";
+		};
+		9200B8D32BABD805005085DC /* TravRecUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8D42BABD805005085DC /* TravRecUITests.swift */,
+				9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */,
+			);
+			path = TravRecUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9200B8B52BABD801005085DC /* TravRec */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9200B8DA2BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRec" */;
+			buildPhases = (
+				9200B8B22BABD801005085DC /* Sources */,
+				9200B8B32BABD801005085DC /* Frameworks */,
+				9200B8B42BABD801005085DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravRec;
+			productName = TravRec;
+			productReference = 9200B8B62BABD801005085DC /* TravRec.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9200B8C52BABD805005085DC /* TravRecTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9200B8DD2BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRecTests" */;
+			buildPhases = (
+				9200B8C22BABD805005085DC /* Sources */,
+				9200B8C32BABD805005085DC /* Frameworks */,
+				9200B8C42BABD805005085DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9200B8C82BABD805005085DC /* PBXTargetDependency */,
+			);
+			name = TravRecTests;
+			productName = TravRecTests;
+			productReference = 9200B8C62BABD805005085DC /* TravRecTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9200B8CF2BABD805005085DC /* TravRecUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9200B8E02BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRecUITests" */;
+			buildPhases = (
+				9200B8CC2BABD805005085DC /* Sources */,
+				9200B8CD2BABD805005085DC /* Frameworks */,
+				9200B8CE2BABD805005085DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9200B8D22BABD805005085DC /* PBXTargetDependency */,
+			);
+			name = TravRecUITests;
+			productName = TravRecUITests;
+			productReference = 9200B8D02BABD805005085DC /* TravRecUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9200B8AE2BABD801005085DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					9200B8B52BABD801005085DC = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					9200B8C52BABD805005085DC = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9200B8B52BABD801005085DC;
+					};
+					9200B8CF2BABD805005085DC = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9200B8B52BABD801005085DC;
+					};
+				};
+			};
+			buildConfigurationList = 9200B8B12BABD801005085DC /* Build configuration list for PBXProject "TravRec" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9200B8AD2BABD801005085DC;
+			productRefGroup = 9200B8B72BABD801005085DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9200B8B52BABD801005085DC /* TravRec */,
+				9200B8C52BABD805005085DC /* TravRecTests */,
+				9200B8CF2BABD805005085DC /* TravRecUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9200B8B42BABD801005085DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9200B8C12BABD804005085DC /* Preview Assets.xcassets in Resources */,
+				9200B8BE2BABD804005085DC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8C42BABD805005085DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8CE2BABD805005085DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9200B8B22BABD801005085DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9200B8BC2BABD801005085DC /* ContentView.swift in Sources */,
+				9200B8BA2BABD801005085DC /* TravRecApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8C22BABD805005085DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9200B8CB2BABD805005085DC /* TravRecTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9200B8CC2BABD805005085DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9200B8D72BABD805005085DC /* TravRecUITestsLaunchTests.swift in Sources */,
+				9200B8D52BABD805005085DC /* TravRecUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9200B8C82BABD805005085DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9200B8B52BABD801005085DC /* TravRec */;
+			targetProxy = 9200B8C72BABD805005085DC /* PBXContainerItemProxy */;
+		};
+		9200B8D22BABD805005085DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9200B8B52BABD801005085DC /* TravRec */;
+			targetProxy = 9200B8D12BABD805005085DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9200B8D82BABD805005085DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9200B8D92BABD805005085DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9200B8DB2BABD805005085DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TravRec/Preview Content\"";
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRec;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9200B8DC2BABD805005085DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TravRec/Preview Content\"";
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRec;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9200B8DE2BABD805005085DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRecTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravRec.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravRec";
+			};
+			name = Debug;
+		};
+		9200B8DF2BABD805005085DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRecTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravRec.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravRec";
+			};
+			name = Release;
+		};
+		9200B8E12BABD805005085DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRecUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TravRec;
+			};
+			name = Debug;
+		};
+		9200B8E22BABD805005085DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQ5LKN58C5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.TravRecUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TravRec;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9200B8B12BABD801005085DC /* Build configuration list for PBXProject "TravRec" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9200B8D82BABD805005085DC /* Debug */,
+				9200B8D92BABD805005085DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9200B8DA2BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRec" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9200B8DB2BABD805005085DC /* Debug */,
+				9200B8DC2BABD805005085DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9200B8DD2BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRecTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9200B8DE2BABD805005085DC /* Debug */,
+				9200B8DF2BABD805005085DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9200B8E02BABD805005085DC /* Build configuration list for PBXNativeTarget "TravRecUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9200B8E12BABD805005085DC /* Debug */,
+				9200B8E22BABD805005085DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9200B8AE2BABD801005085DC /* Project object */;
+}
