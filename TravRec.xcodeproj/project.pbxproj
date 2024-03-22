@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9200B8BA2BABD801005085DC /* TravRecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8B92BABD801005085DC /* TravRecApp.swift */; };
-		9200B8BC2BABD801005085DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8BB2BABD801005085DC /* ContentView.swift */; };
 		9200B8BE2BABD804005085DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9200B8BD2BABD804005085DC /* Assets.xcassets */; };
 		9200B8C12BABD804005085DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9200B8C02BABD804005085DC /* Preview Assets.xcassets */; };
 		9200B8CB2BABD805005085DC /* TravRecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8CA2BABD805005085DC /* TravRecTests.swift */; };
 		9200B8D52BABD805005085DC /* TravRecUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8D42BABD805005085DC /* TravRecUITests.swift */; };
 		9200B8D72BABD805005085DC /* TravRecUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */; };
+		9200B8E42BABD8E9005085DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8E32BABD8E9005085DC /* MainView.swift */; };
+		9200B8E92BAD0E90005085DC /* TravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8E82BAD0E90005085DC /* TravelView.swift */; };
+		9200B8EB2BAD0EA3005085DC /* BucketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8EA2BAD0EA3005085DC /* BucketDetailView.swift */; };
+		9200B8ED2BAD0EB5005085DC /* AddTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */; };
+		9200B8EF2BAD0EC6005085DC /* dataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8EE2BAD0EC6005085DC /* dataList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		9200B8B62BABD801005085DC /* TravRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9200B8B92BABD801005085DC /* TravRecApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecApp.swift; sourceTree = "<group>"; };
-		9200B8BB2BABD801005085DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9200B8BD2BABD804005085DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9200B8C02BABD804005085DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9200B8C62BABD805005085DC /* TravRecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravRecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,12 @@
 		9200B8D02BABD805005085DC /* TravRecUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravRecUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9200B8D42BABD805005085DC /* TravRecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITests.swift; sourceTree = "<group>"; };
 		9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9200B8E32BABD8E9005085DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9200B8E72BABD960005085DC /* travrec_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travrec_logo.png; sourceTree = "<group>"; };
+		9200B8E82BAD0E90005085DC /* TravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelView.swift; sourceTree = "<group>"; };
+		9200B8EA2BAD0EA3005085DC /* BucketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailView.swift; sourceTree = "<group>"; };
+		9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
+		9200B8EE2BAD0EC6005085DC /* dataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +103,15 @@
 		9200B8B82BABD801005085DC /* TravRec */ = {
 			isa = PBXGroup;
 			children = (
+				9200B8F02BAD0ECC005085DC /* lib */,
 				9200B8B92BABD801005085DC /* TravRecApp.swift */,
-				9200B8BB2BABD801005085DC /* ContentView.swift */,
+				9200B8E72BABD960005085DC /* travrec_logo.png */,
 				9200B8BD2BABD804005085DC /* Assets.xcassets */,
 				9200B8BF2BABD804005085DC /* Preview Content */,
+				9200B8E32BABD8E9005085DC /* MainView.swift */,
+				9200B8E82BAD0E90005085DC /* TravelView.swift */,
+				9200B8EA2BAD0EA3005085DC /* BucketDetailView.swift */,
+				9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */,
 			);
 			path = TravRec;
 			sourceTree = "<group>";
@@ -125,6 +139,14 @@
 				9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */,
 			);
 			path = TravRecUITests;
+			sourceTree = "<group>";
+		};
+		9200B8F02BAD0ECC005085DC /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9200B8EE2BAD0EC6005085DC /* dataList.swift */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9200B8BC2BABD801005085DC /* ContentView.swift in Sources */,
+				9200B8ED2BAD0EB5005085DC /* AddTravelView.swift in Sources */,
+				9200B8E42BABD8E9005085DC /* MainView.swift in Sources */,
+				9200B8EB2BAD0EA3005085DC /* BucketDetailView.swift in Sources */,
+				9200B8E92BAD0E90005085DC /* TravelView.swift in Sources */,
 				9200B8BA2BABD801005085DC /* TravRecApp.swift in Sources */,
+				9200B8EF2BAD0EC6005085DC /* dataList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
