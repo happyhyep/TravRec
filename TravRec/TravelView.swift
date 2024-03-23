@@ -1,94 +1,111 @@
-//
-//  TravelView.swift
-//  TravRec
-//
-//  Created by jeong hyein on 3/22/24.
-//
-
 import SwiftUI
 import MobileCoreServices
 
 struct TravelView: View {
-     var travelObj: travelInterface
-
-
+    var travelObj: travelInterface
+    
+    var carouselCategoryList = ["버킷리스트", "좋았던 기억", "아쉬웠던 기억"]
     
     var body: some View {
-        VStack (alignment: .trailing) {
-            HStack(alignment: .top){
-                Image(systemName: "photo.on.rectangle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100)
-                    .foregroundColor(.indigo)
-                Text("\(travelObj.title)").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack (alignment: .leading) {
+                HStack(alignment: .center){
+                    Image(systemName: "photo.on.rectangle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100)
+                        .foregroundColor(.indigo)
+                        .padding(.trailing, 20)
+                    VStack(alignment: .leading) {
+                        Text("\(travelObj.title)").font(.title2)
+                        Text("\(travelObj.startDate) ~ \(travelObj.endDate)").font(.caption)
+                    }
+                }
+                .padding(.horizontal, 40)
                 
-            }
-            .padding(.horizontal, 30)
-            
-            TabView {
-                VStack {
-                    Text("버킷리스트").font(.title)
-                    List(travelObj.bucketList, id: \.id) {
-                        bucketEl in
-                        NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
-                            HStack{
-                                Image(systemName: "checkmark.circle").padding(.trailing, 10)
-                                VStack(alignment: .leading) {
-                                    Text(bucketEl.bucketTitle).font(.headline)
+                TabView {
+                    VStack(alignment: .leading) {
+                        Text("버킷리스트").font(.largeTitle).padding([.top, .leading],40)
+                        List(travelObj.bucketList, id: \.id) {
+                            bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                                HStack{
+                                    Image(systemName: "checkmark.circle").padding(.trailing, 10)
+                                    VStack(alignment: .leading) {
+                                        Text(bucketEl.bucketTitle).font(.headline)
+                                    }
                                 }
-                            }
-                        })
-                    }.listStyle(.plain)
-                        .background(Color.white)
-                        .padding(20)
+                            })
+                        }.listStyle(.plain)
+                            .frame(height: 200)
+                            .background(Color.white)
+                            .padding(20)
+                        
+                        HStack {
+                            Spacer()
+                            NavigationLink(destination: BucketDetailView(bucketObj: bucket1)) {
+                                Text("버킷리스트 추가")
+                            }.padding([.bottom, .trailing], 30)
+
+                        }
+                        Spacer()
+                    }
+                    .tabItem {
+                        Image(systemName: "circle")
+                        Text("버킷리스트")
+                    }
                     
-//                    Color.red
-                }
-                .tabItem { Image(systemName: "circle") }
-                
-                VStack {
-                    Text("버킷리스트").font(.title)
-                    List(travelObj.bucketList, id: \.id) {
-                        bucketEl in
-                        NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
-                            HStack{
-                                Image(systemName: "folder").padding(.trailing, 10)
-                                VStack(alignment: .leading) {
-                                    Text(bucketEl.bucketTitle).font(.headline)
+                    
+                    VStack(alignment: .leading) {
+                        Text("좋았던 기억").font(.largeTitle).padding([.top, .leading],40)
+                        List(travelObj.bucketList, id: \.id) {
+                            bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                                HStack{
+                                    Image(systemName: "folder").padding(.trailing, 10)
+                                    VStack(alignment: .leading) {
+                                        Text(bucketEl.bucketTitle).font(.headline)
+                                    }
                                 }
-                            }
-                        })
-                    }.listStyle(.plain)
-                        .background(Color.white)
-                        .padding(20)
-//                    Color.blue
-                }
-                .tabItem { Image(systemName: "circle") }
-                
-                VStack {
-                    Text("버킷리스트").font(.title)
-                    List(travelObj.bucketList, id: \.id) {
-                        bucketEl in
-                        NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
-                            HStack{
-                                Image(systemName: "folder").padding(.trailing, 10)
-                                VStack(alignment: .leading) {
-                                    Text(bucketEl.bucketTitle).font(.headline)
+                            })
+                        }.listStyle(.plain)
+                            .background(Color.white)
+                            .padding(20)
+                    }
+                    .tabItem {
+                        Image(systemName: "circle")
+                        Text("좋았던 기억")
+                    }
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text("아쉬웠던 기억").font(.largeTitle).padding([.top, .leading],40)
+                        List(travelObj.bucketList, id: \.id) {
+                            bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                                HStack{
+                                    Image(systemName: "folder").padding(.trailing, 10)
+                                    VStack(alignment: .leading) {
+                                        Text(bucketEl.bucketTitle).font(.headline)
+                                    }
                                 }
-                            }
-                        })
-                    }.listStyle(.plain)
-                        .background(Color.white)
-                        .padding(20)
-//                    Color.green
+                            })
+                        }.listStyle(.plain)
+                            .background(Color.white)
+                            .padding(20)
+                        
+                    }
+                    .tabItem {
+                        Image(systemName: "circle")
+                        Text("아쉬웠던 기억") }
                 }
-                .tabItem { Image(systemName: "circle") }
+                .padding(.bottom, 20)
+                
+                // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+                //            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                
             }
-            .frame(width: 500, height: 200)
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         }
-        
-    }
-    
+}
+
 }

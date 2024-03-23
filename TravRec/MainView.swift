@@ -44,120 +44,119 @@ struct MainView: View {
     
     
     @State var travelList = [
-        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7
+        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
     ]
     
     var body: some View {
-        VStack (alignment: .center) {
-            HStack {
-                Image("travrec_logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200)
-                    .padding(.bottom, 10)
-                Spacer()
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                    .foregroundColor(Color(.systemIndigo))
-                    .padding(.trailing,20)
-            }
-            
-            NavigationSplitView {
-                VStack {
+        NavigationStack {
+       
+                VStack (alignment: .center) {
                     HStack {
-                        // 여행별/아쉬웠던/좋았던 분류 드롭다운
-                        Menu {
-                            Button {
-                                categoryDropdownLabel = .travel
-                            } label: {
-                                Text("여행별 기억")
-                            }
-                            Button {
-                                categoryDropdownLabel = .happy
-                            } label: {
-                                Text("좋았던 기억")
-                            }
-                            Button {
-                                categoryDropdownLabel = .sad
-                            } label: {
-                                Text("아쉬웠던 기억")
-                            }
-                        } label: {
-                            HStack {
-                                Text(categoryDropdownLabel.rawValue).font(.caption)
-                                Image(systemName: "chevron.down")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 8)
-                            }
-                            .padding(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(.indigo, lineWidth: 1.5)
-                            )
-                        }
-                        Spacer()
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("날짜순").font(.caption)
-                            Image(systemName: "arrow.up.arrow.down")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 10)
-                        }
-                        .padding(4)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.indigo, lineWidth: 1)
-                        )
-                    }.padding(.horizontal, 30)
-                    
-                    List(travelList, id: \.id) {
-                        travelEl in
-                        NavigationLink(destination: TravelView(travelObj: travelEl), label: {
-                            HStack{
-                                Image(systemName: "folder").padding(.trailing, 10)
-                                VStack(alignment: .leading) {
-                                    Text(travelEl.title).font(.headline)
-                                    Text("(\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
-                                }
-                            }
-                        })
-                    }.listStyle(.plain)
-                        .background(Color.white)
-//                        .border(Color.indigo)
-                        .padding(20)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 5)
-//                                .stroke(.indigo, lineWidth: 1)
-//                        )
-                    
-                    NavigationLink(destination: AddTravelView(), label: {
-                        Image(systemName: "square.and.pencil.circle.fill")
+                        Image("images/travrec_logo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width:60)
-//                            .offset(x:170, y: -50)
+                            .frame(width: 200)
+                            .padding(.bottom, 10)
+                        Spacer()
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30)
                             .foregroundColor(Color(.systemIndigo))
-                    })
+                            .padding(.trailing,20)
+                    }
+                
+                
+                ZStack {
+                    VStack {
+                        HStack {
+                            // 여행별/아쉬웠던/좋았던 분류 드롭다운
+                            Menu {
+                                Button {
+                                    categoryDropdownLabel = .travel
+                                } label: {
+                                    Text("여행별 기억")
+                                }
+                                Button {
+                                    categoryDropdownLabel = .happy
+                                } label: {
+                                    Text("좋았던 기억")
+                                }
+                                Button {
+                                    categoryDropdownLabel = .sad
+                                } label: {
+                                    Text("아쉬웠던 기억")
+                                }
+                            } label: {
+                                HStack {
+                                    Text(categoryDropdownLabel.rawValue).font(.caption)
+                                    Image(systemName: "chevron.down")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 8)
+                                }
+                                .padding(5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(.indigo, lineWidth: 1.5)
+                                )
+                            }
+                            Spacer()
+                            
+                            Button {
+                                
+                            } label: {
+                                Text("날짜순").font(.caption)
+                                Image(systemName: "arrow.up.arrow.down")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 10)
+                            }
+                            .padding(4)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.indigo, lineWidth: 1)
+                            )
+                        }.padding(.horizontal, 30)
+                        
+                        List(travelList, id: \.id) {
+                            travelEl in
+                            NavigationLink(destination: TravelView(travelObj: travelEl), label: {
+                                HStack{
+                                    Image(systemName: "folder").padding(.trailing, 10)
+                                    VStack(alignment: .leading) {
+                                        Text(travelEl.title).font(.headline)
+                                        Text("(\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
+                                    }
+                                }
+                            })
+                        }.listStyle(.plain)
+                        //                        .frame(height: 500)
+//                            .background(Color.white)
+//                                                .border(Color.indigo)
+                            .padding(20)
+                        //                        .overlay(
+                        //                            RoundedRectangle(cornerRadius: 5)
+                        //                                .stroke(.indigo, lineWidth: 1)
+                        //                        )
+                    }
+                    HStack(alignment: .bottom) {
+                        Spacer()
+                        NavigationLink(destination: AddTravelView(), label: {
+                            Image(systemName: "square.and.pencil.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width:60)
+                            //                            .offset(x:170, y: -50)
+                                .foregroundColor(Color(.systemIndigo))
+                                .zIndex(10)
+                        })
+                        .padding(.top, 500)
+                        .padding(.trailing, 30)
+                    }
                 }
 
             }
-            
-        detail: {
-
         }
-            
-            NavigationStack {
-                
-            }
-        }
-        
-
-        
     }
 }

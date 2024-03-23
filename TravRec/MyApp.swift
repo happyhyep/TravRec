@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct TravRecApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()

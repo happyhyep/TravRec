@@ -1,10 +1,3 @@
-//
-//  dataList.swift
-//  TravRec
-//
-//  Created by jeong hyein on 3/22/24.
-//
-
 import SwiftUI
 
 struct bucketInterface: Identifiable {
@@ -50,6 +43,13 @@ var travel4 = travelInterface(id: UUID(), title: "도쿄", startDate: "2023.05.0
 var travel5 = travelInterface(id: UUID(), title: "오사카", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
 var travel6 = travelInterface(id: UUID(), title: "하와이", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
 var travel7 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel8 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel9 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel10 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel11 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel12 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel13 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
+var travel14 = travelInterface(id: UUID(), title: "미국", startDate: "2023.05.04", endDate: "2023.05.19", isPublic: false, titleimg: Image("travelrec_logo"), bucketList:  [bucket1,bucket2,bucket3,bucket4], happyList: [], sadList: [])
 
 var bucket1 = bucketInterface(id: 0, bucketTitle: "현지인과 스몰톡 해보기", bucketDesct: "", isComplete: false)
 var bucket2 = bucketInterface(id: 1, bucketTitle: "비키니 입어보기", bucketDesct: "", isComplete: false)
