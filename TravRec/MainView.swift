@@ -6,6 +6,11 @@ enum CategoryDropdown: String {
     case sad = "아쉬웠던 기억"
 }
 
+enum sortStandardEnum: String {
+    case date = "날짜순"
+    case dictionary = "ㄱㄴㄷ순"
+}
+
 //struct bucketInterface: Identifiable {
 //    var key: UUID
 //    var bucketTitle: String
@@ -41,7 +46,7 @@ enum CategoryDropdown: String {
 
 struct MainView: View {
     @State var categoryDropdownLabel:CategoryDropdown = .travel
-    
+     @State var sortStandard:sortStandardEnum = .date
     
     @State var travelList = [
         travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
@@ -52,12 +57,18 @@ struct MainView: View {
        
                 VStack (alignment: .center) {
                     HStack {
-                        Image("images/travrec_logo")
+                        Image("travrec_logo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200)
                             .padding(.bottom, 10)
                         Spacer()
+                        Image(systemName: "sparkle.magnifyingglass")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30)
+                            .foregroundColor(Color(.systemIndigo))
+                            .padding(.trailing,20)
                         Image(systemName: "person.crop.circle")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -104,9 +115,13 @@ struct MainView: View {
                             Spacer()
                             
                             Button {
-                                
+                                if (sortStandard == .date) {
+                                    sortStandard = .dictionary
+                                } else {
+                                    sortStandard = .date
+                                }
                             } label: {
-                                Text("날짜순").font(.caption)
+                                Text(sortStandard.rawValue).font(.caption)
                                 Image(systemName: "arrow.up.arrow.down")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -151,7 +166,7 @@ struct MainView: View {
                                 .foregroundColor(Color(.systemIndigo))
                                 .zIndex(10)
                         })
-                        .padding(.top, 500)
+                        .padding(.top, 700)
                         .padding(.trailing, 30)
                     }
                 }

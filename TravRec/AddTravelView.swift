@@ -1,5 +1,11 @@
 import SwiftUI
 
+
+enum publicOrPrivateEnum: String {
+    case pub = "공개"
+    case priv = "비공개"
+}
+
 struct AddTravelView: View {
     @State var title: String = ""
     @State var tempBucketList: [String] = []
@@ -15,6 +21,8 @@ struct AddTravelView: View {
     @State var selectedUIImage: UIImage?
     @State var image: Image?
     
+    @State var publicOrPrivate: publicOrPrivateEnum = .priv
+    
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
         image = Image(uiImage: selectedImage)
@@ -28,51 +36,52 @@ struct AddTravelView: View {
     
     
     var body: some View {
-        
         VStack(spacing: 30) {
             HStack(alignment: .top) {
                 VStack(spacing: 20) {
-                    
-                    if let image = image {
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .frame( height: 120)
-                    } else {
-                        Button {
-                            showImagePicker.toggle()
-                        } label: {
-                            Image(systemName: "photo.on.rectangle.angled")
+                    Group {
+                        if let image = image {
+                            image
                                 .resizable()
-                                .foregroundColor(.gray)
                                 .aspectRatio(contentMode: .fit)
-//                                .symbolRenderingMode(.hierarchical)
-                                .frame(width: 80)
-                                .padding(30)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(.gray, lineWidth: 2)
-                                        .shadow(color: .gray, radius: 3, x: 5, y: 5)
-                                )
-                        }
-                        .sheet(isPresented: $showImagePicker, onDismiss: {
-                            loadImage()
-                        }) {
-                            ImagePicker(image: $selectedUIImage)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .frame( height: 120)
+                        } else {
+                            Button {
+                                showImagePicker.toggle()
+                            } label: {
+                                Image(systemName: "photo.on.rectangle.angled")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundStyle(.gray)
+                                    .frame(width: 80)
+                                    .padding(30)
+                            }
+                            .sheet(isPresented: $showImagePicker, onDismiss: {
+                                loadImage()
+                            }) {
+                                ImagePicker(image: $selectedUIImage)
+                            }
                         }
                     }
-                    
-                    
-                    
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.gray, lineWidth: 3)
+                    )
                 }
                 
                 
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    if (publicOrPrivate == .pub) {
+                        publicOrPrivate = .priv
+                    } else {
+                        publicOrPrivate = .pub
+                    }
+                }, label: {
                     HStack{
-                        Image(systemName: "lock.open.fill")
-                        Text("공개")
+                        ( publicOrPrivate == .pub ) ? Image(systemName: "lock.open.fill") : Image(systemName: "lock.fill")
+                        Text(publicOrPrivate.rawValue)
                     }
                     .padding(4)
                     .overlay(
@@ -83,6 +92,8 @@ struct AddTravelView: View {
             }
             .padding(.horizontal, 10)
             .padding(.top, 30)
+            
+            Divider()
             
             VStack(alignment:.leading) {
                 Text("✈️ 여행 제목").font(.title3)
@@ -122,7 +133,7 @@ struct AddTravelView: View {
                                 tempBucketList.append("")
 
                             }, label: {
-                                Text("+ 추가")
+                                Label("추가 +", systemImage: "text.append")
                             })
                             if (tempBucketList.count > 0) {
                                 List(tempBucketList, id: \.self) {
@@ -180,7 +191,26 @@ struct AddTravelView: View {
             }
             
             Spacer()
+            Button(action: {
+                
+            }, label: {
+                Text("작성 완료")
+                    .font(.headline)
+                .padding(5)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                .background(.indigo)
+                    .cornerRadius(10)
+                    .shadow(radius: 5, x: 5, y:5)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 5)
+//                            .fill()
+//                            .stroke(.indigo, lineWidth: 1)
+//
+//                    )
+            }).padding(.bottom, 50)
         }.padding(.horizontal, 20)
+        .navigationTitle("여행 추가")
     }
     
 }

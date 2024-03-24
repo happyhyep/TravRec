@@ -2,20 +2,48 @@ import SwiftUI
 import MobileCoreServices
 
 struct TravelView: View {
-    var travelObj: travelInterface
+    @State var travelObj: travelInterface
     
     var carouselCategoryList = ["버킷리스트", "좋았던 기억", "아쉬웠던 기억"]
     
+    @State var showImagePicker = false
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    
+    func loadImage() {
+        guard let selectedImage = selectedUIImage else { return }
+        image = Image(uiImage: selectedImage)
+    }
+    
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             VStack (alignment: .leading) {
                 HStack(alignment: .center){
-                    Image(systemName: "photo.on.rectangle")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100)
-                        .foregroundColor(.indigo)
-                        .padding(.trailing, 20)
+                    if let image = image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .frame( height: 120)
+                            .padding(30)
+                    } else {
+                        Button {
+                            showImagePicker.toggle()
+                        } label: {
+                            Image(systemName: "photo.badge.plus")
+                                .resizable()
+                                .foregroundColor(.indigo)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 120)
+                                .padding(30)
+                        }
+                        .sheet(isPresented: $showImagePicker, onDismiss: {
+                            loadImage()
+                        }) {
+                            ImagePicker(image: $selectedUIImage)
+                        }
+                    }
+                    
                     VStack(alignment: .leading) {
                         Text("\(travelObj.title)").font(.title2)
                         Text("\(travelObj.startDate) ~ \(travelObj.endDate)").font(.caption)
@@ -23,12 +51,15 @@ struct TravelView: View {
                 }
                 .padding(.horizontal, 40)
                 
+                Divider()
+                    .padding(.horizontal, 40)
+                
                 TabView {
                     VStack(alignment: .leading) {
-                        Text("버킷리스트").font(.largeTitle).padding([.top, .leading],40)
-                        List(travelObj.bucketList, id: \.id) {
-                            bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                        Text("버킷리스트").font(.largeTitle).padding(.leading,40).padding(.top, 20)
+                        List($travelObj.bucketList, id: \.id) {
+                            $bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
                                     Image(systemName: "checkmark.circle").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
@@ -43,7 +74,7 @@ struct TravelView: View {
                         
                         HStack {
                             Spacer()
-                            NavigationLink(destination: BucketDetailView(bucketObj: bucket1)) {
+                            NavigationLink(destination: AddBucketView(travelObj: $travelObj)) {
                                 Text("버킷리스트 추가")
                             }.padding([.bottom, .trailing], 30)
 
@@ -57,10 +88,10 @@ struct TravelView: View {
                     
                     
                     VStack(alignment: .leading) {
-                        Text("좋았던 기억").font(.largeTitle).padding([.top, .leading],40)
-                        List(travelObj.bucketList, id: \.id) {
-                            bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                        Text("좋았던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
+                        List($travelObj.bucketList, id: \.id) {
+                            $bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
                                     Image(systemName: "folder").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
@@ -79,10 +110,10 @@ struct TravelView: View {
                     
                     
                     VStack(alignment: .leading) {
-                        Text("아쉬웠던 기억").font(.largeTitle).padding([.top, .leading],40)
-                        List(travelObj.bucketList, id: \.id) {
-                            bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: bucketEl), label: {
+                        Text("아쉬웠던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
+                        List($travelObj.bucketList, id: \.id) {
+                            $bucketEl in
+                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
                                     Image(systemName: "folder").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
@@ -105,7 +136,7 @@ struct TravelView: View {
                 //            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 
             }
-        }
+//        }
 }
 
 }

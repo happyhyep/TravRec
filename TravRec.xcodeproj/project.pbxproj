@@ -19,6 +19,7 @@
 		9200B8ED2BAD0EB5005085DC /* AddTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */; };
 		9200B8EF2BAD0EC6005085DC /* dataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8EE2BAD0EC6005085DC /* dataList.swift */; };
 		9200B8F22BADE5FE005085DC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8F12BADE5FE005085DC /* ImagePicker.swift */; };
+		9200B8F42BB01F1C005085DC /* AddBucketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200B8F32BB01F1C005085DC /* AddBucketView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
 		9200B8EE2BAD0EC6005085DC /* dataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataList.swift; sourceTree = "<group>"; };
 		9200B8F12BADE5FE005085DC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9200B8F32BB01F1C005085DC /* AddBucketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBucketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				9200B8E32BABD8E9005085DC /* MainView.swift */,
 				9200B8E82BAD0E90005085DC /* TravelView.swift */,
 				9200B8EA2BAD0EA3005085DC /* BucketDetailView.swift */,
+				9200B8F32BB01F1C005085DC /* AddBucketView.swift */,
 				9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */,
 				9200B8F12BADE5FE005085DC /* ImagePicker.swift */,
 			);
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9200B8F42BB01F1C005085DC /* AddBucketView.swift in Sources */,
 				9200B8ED2BAD0EB5005085DC /* AddTravelView.swift in Sources */,
 				9200B8E42BABD8E9005085DC /* MainView.swift in Sources */,
 				9200B8EB2BAD0EA3005085DC /* BucketDetailView.swift in Sources */,
