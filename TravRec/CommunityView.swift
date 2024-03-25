@@ -69,7 +69,7 @@ struct CommunityView: View {
                         HStack {
                             Spacer()
                             VStack(alignment: .leading, spacing: 10) {
-                                ForEach(user.travelList[0].happyList!, id: \.self) {happy in
+                                ForEach(user.travelList[0].happyList, id: \.self) {happy in
                                     HStack {
                                         Image(systemName: "checkmark.circle.fill")
                                         Text(happy)

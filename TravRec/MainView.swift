@@ -7,7 +7,7 @@ enum CategoryDropdown: String {
 }
 
 enum sortStandardEnum: String {
-    case date = "날짜순"
+    case date = "생성한 순"
     case dictionary = "ㄱㄴㄷ순"
 }
 
@@ -48,9 +48,15 @@ struct MainView: View {
     @State var categoryDropdownLabel:CategoryDropdown = .travel
      @State var sortStandard:sortStandardEnum = .date
     
-    @State var travelList = [
-        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
-    ]
+//    @State var travelList = [
+//        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
+//    ]
+    @AppStorage("travelList") var travelList: [travelInterface] = UserDefaults.standard.array(forKey: "travelList") ?? [travel0]
+
+    @State var sortedTravelList: [travelInterface] = []
+    
+//    @State var happyList: [String] = [happy1, happy2, happy3, happy4, happy5, happy6, happy7]
+    
     
     var body: some View {
         NavigationStack {
@@ -119,6 +125,7 @@ struct MainView: View {
                             Button {
                                 if (sortStandard == .date) {
                                     sortStandard = .dictionary
+                                    sortedTravelList = $travelList.sorted {$0.title < $1.title}
                                 } else {
                                     sortStandard = .date
                                 }
@@ -136,26 +143,70 @@ struct MainView: View {
                             )
                         }.padding(.horizontal, 30)
                         
-                        List(travelList, id: \.id) {
-                            travelEl in
-                            NavigationLink(destination: TravelView(travelObj: travelEl), label: {
-                                HStack{
-                                    Image(systemName: "folder").padding(.trailing, 10)
-                                    VStack(alignment: .leading) {
-                                        Text(travelEl.title).font(.headline)
-                                        Text("(\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
+                        if (categoryDropdownLabel == .travel) {
+                            List(sortStandard == .date ? $travelList : sortedTravelList, id: \.id) {
+                                travelEl in
+                                NavigationLink(destination: TravelView(travelObj: travelEl), label: {
+                                    HStack{
+                                        Image(systemName: "folder").padding(.trailing, 10)
+                                        VStack(alignment: .leading) {
+                                            Text(travelEl.title).font(.headline)
+                                            Text("(\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
+                                        }
                                     }
-                                }
-                            })
-                        }.listStyle(.plain)
-                        //                        .frame(height: 500)
-//                            .background(Color.white)
-//                                                .border(Color.indigo)
+                                })
+                            }
+                            .listStyle(.plain)
                             .padding(20)
-                        //                        .overlay(
-                        //                            RoundedRectangle(cornerRadius: 5)
-                        //                                .stroke(.indigo, lineWidth: 1)
-                        //                        )
+                        } else if (categoryDropdownLabel == .happy) {
+//                            var happyList: [String] = []
+//
+//                            ForEach(travelList, id: \.id) { tra in
+//                                ForEach(tra.happyList, id: \.self) {
+//                                    hap in
+//                                    happyList.append(hap)
+//                                }
+//                            }
+////                            for trav in travelList {
+////                                for hap in trav.happyList {
+////                                    happyList.append(hap)
+////                                }
+////                            }
+                            List(travelList, id: \.id) {
+                                                      
+                                
+//                                                            ForEach(travelList, id: \.id) { tra in
+//                                                                ForEach(tra.happyList, id: \.self) {
+//                                                                    hap in
+//                                                                    happyList.append(hap)
+//                                                                }
+//                                                            }
+                                //                            for trav in travelList {
+                                //                                for hap in trav.happyList {
+                                //                                    happyList.append(hap)
+                                //                                }
+                                //                            }
+                                travelEl in
+                                ForEach(travelEl.happyList, id: \.self) {
+                                    hap in
+                                    NavigationLink(destination: TravelView(travelObj: travelEl), label: {
+                                        HStack{
+                                            Image(systemName: "hand.thumbsup").padding(.trailing, 10)
+                                            VStack(alignment: .leading) {
+                                                Text(hap).font(.headline)
+                                                Text("\(travelEl.title)").font(.caption)
+                                            }
+                                        }
+                                    })
+                                }
+
+                            }
+                            .listStyle(.plain)
+                            .padding(20)
+                        }  else if (categoryDropdownLabel == .sad) {
+                            
+                        }
+                        Spacer()
                     }
                     HStack(alignment: .bottom) {
                         Spacer()
