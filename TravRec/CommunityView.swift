@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CommunityView: View {
     var userList: [userInterface] = [user1, user2, user3]
+    @State var isBookmarkClicked: [Bool] = [false, false, false]
     
     var body: some View {
         ScrollView {
@@ -95,7 +96,7 @@ struct CommunityView: View {
                         HStack {
                             Spacer()
                             VStack(alignment: .leading, spacing: 10) {
-                                ForEach(user.travelList[0].sadList!, id: \.self) {sad in
+                                ForEach(user.travelList[0].sadList, id: \.self) {sad in
                                     HStack {
                                         Image(systemName: "checkmark.circle.fill")
                                         Text(sad)
@@ -114,7 +115,7 @@ struct CommunityView: View {
                     }
                     
                 }
-                .padding(.horizontal, 70)
+                .padding(.horizontal, 50)
                 .padding(.bottom, 50)
                 .padding(.top, 20)
             }

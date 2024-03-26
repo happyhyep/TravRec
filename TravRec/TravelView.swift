@@ -61,7 +61,7 @@ struct TravelView: View {
                             $bucketEl in
                             NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
-                                    Image(systemName: "checkmark.circle").padding(.trailing, 10)
+                                    bucketEl.isComplete ? Image(systemName: "checkmark.circle.fill").padding(.trailing, 10) : Image(systemName: "checkmark.circle").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
                                         Text(bucketEl.bucketTitle).font(.headline)
                                     }
@@ -69,7 +69,7 @@ struct TravelView: View {
                             })
                         }.listStyle(.plain)
                             .frame(height: 200)
-                            .background(Color.white)
+                            .background(Color.clear)
                             .padding(20)
                         
                         HStack {
@@ -89,18 +89,17 @@ struct TravelView: View {
                     
                     VStack(alignment: .leading) {
                         Text("좋았던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
-                        List($travelObj.bucketList, id: \.id) {
+                        List($travelObj.happyList, id: \.self) {
                             $bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
-                                    Image(systemName: "folder").padding(.trailing, 10)
+                                    Image(systemName: "hand.thumbsup").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
-                                        Text(bucketEl.bucketTitle).font(.headline)
+                                        Text(bucketEl).font(.headline)
                                     }
                                 }
-                            })
+
                         }.listStyle(.plain)
-                            .background(Color.white)
+                            .background(Color.clear)
                             .padding(20)
                     }
                     .tabItem {
@@ -111,18 +110,16 @@ struct TravelView: View {
                     
                     VStack(alignment: .leading) {
                         Text("아쉬웠던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
-                        List($travelObj.bucketList, id: \.id) {
+                        List($travelObj.sadList, id: \.self) {
                             $bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
                                 HStack{
-                                    Image(systemName: "folder").padding(.trailing, 10)
+                                    Image(systemName: "hand.thumbsdown").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
-                                        Text(bucketEl.bucketTitle).font(.headline)
+                                        Text(bucketEl).font(.headline)
                                     }
                                 }
-                            })
                         }.listStyle(.plain)
-                            .background(Color.white)
+                            .background(Color.clear)
                             .padding(20)
                         
                     }

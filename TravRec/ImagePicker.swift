@@ -1,10 +1,3 @@
-//
-//  ImagePicker.swift
-//  TravRec
-//
-//  Created by jeong hyein on 3/23/24.
-//
-
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {

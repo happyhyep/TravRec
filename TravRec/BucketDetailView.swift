@@ -3,6 +3,8 @@ import SwiftUI
 struct BucketDetailView: View {
     @Binding var bucketObj: bucketInterface
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var clickedStarCount: Int = 0
     @State var starList: [Bool] = [false, false, false, false, false]
     
@@ -29,6 +31,7 @@ struct BucketDetailView: View {
                         Image("\(bucketObj.bucketImg)")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                             .frame(width: 300)
                     }
                     .overlay(
@@ -45,37 +48,62 @@ struct BucketDetailView: View {
             }
             
             if (bucketObj.isComplete) {
-                HStack {
-                    Text("만족도 : ")
-                    Spacer()
-                    Button(action: {
-                        if (clickedStarCount >= 1) {
-                            clickedStarCount -= 1
+                if (bucketObj.satisfactLevel == nil) {
+                    HStack {
+                        Text("만족도 : ")
+                        Spacer()
+                        Button(action: {
+                            if (clickedStarCount >= 1) {
+                                clickedStarCount -= 1
+                            }
+                        }, label: {
+                            Image(systemName: "minus")
+                        }).padding(.horizontal, 10)
+                        
+                        ForEach(0..<clickedStarCount, id: \.self) { idx in
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
                         }
-                    }, label: {
-                        Image(systemName: "minus")
-                    }).padding(.horizontal, 10)
-                    
-                    ForEach(0..<clickedStarCount, id: \.self) { idx in
-                        Image(systemName: "star.fill")
-                            .foregroundStyle(.yellow)
-                    }
-                    ForEach(0..<(5 - clickedStarCount), id: \.self) { idx in
-                        Image(systemName: "star")
-                    }
-                    Button(action: {
-                        if (clickedStarCount <= 4) {
-                            clickedStarCount += 1
+                        ForEach(0..<(5 - clickedStarCount), id: \.self) { idx in
+                            Image(systemName: "star")
                         }
-                    }, label: {
-                        Image(systemName: "plus")
-                    }).padding(.horizontal, 10)
-                    Spacer()
+                        Button(action: {
+                            if (clickedStarCount <= 4) {
+                                clickedStarCount += 1
+                            }
+                        }, label: {
+                            Image(systemName: "plus")
+                        }).padding(.horizontal, 10)
+                        Spacer()
+                    }
                 }
-                GroupBox(label: Label("느낀점", systemImage: "arrow.right.to.line.compact")) {
-                    TextField("느낀점을 작성해주세요.", text: $tempBucketReview)
-                        .font(.caption)
-                        .textFieldStyle(.roundedBorder)
+                else if (bucketObj.satisfactLevel != nil) {
+                    HStack {
+                        Text("만족도 : ")
+                        Spacer()
+                        
+                        ForEach(0..<bucketObj.satisfactLevel!, id: \.self) { idx in
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                        }
+                        ForEach(0..<(5 - bucketObj.satisfactLevel!), id: \.self) { idx in
+                            Image(systemName: "star")
+                        }
+                        
+                        Spacer()
+                    }
+                }
+                if (bucketObj.bucketReview == nil) {
+                    GroupBox(label: Label("느낀점", systemImage: "arrow.right.to.line.compact")) {
+                        TextField("느낀점을 작성해주세요.", text: $tempBucketReview)
+                            .font(.caption)
+                            .textFieldStyle(.roundedBorder)
+                    }
+                } else if (bucketObj.bucketReview != nil) {
+                    GroupBox(label: Label("느낀점", systemImage: "arrow.right.to.line.compact")) {
+                        Text(bucketObj.bucketReview!)
+                            .textFieldStyle(.roundedBorder)
+                    }
                 }
             }
             
@@ -99,8 +127,11 @@ struct BucketDetailView: View {
                     .shadow(radius: 5, x: 5, y:5)
                     
                 }).padding(.bottom, 50)
-            } else {
+            } else if (bucketObj.isComplete && bucketObj.satisfactLevel == nil) {
                 Button(action: {
+                    bucketObj.satisfactLevel = clickedStarCount
+                    bucketObj.bucketReview = tempBucketReview
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("작성 완료")
                         .font(.headline)

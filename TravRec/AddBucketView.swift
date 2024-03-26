@@ -3,6 +3,7 @@ import SwiftUI
 struct AddBucketView: View {
     @Binding var travelObj: travelInterface
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var bucketTitleInput: String = ""
      @State var bucketDescInput: String = ""
@@ -11,6 +12,7 @@ struct AddBucketView: View {
     @State var selectedUIImage: UIImage?
     @State var image: Image?
     
+    @State var bucketList: [bucketInterface] = []
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
         image = Image(uiImage: selectedImage)
@@ -94,6 +96,26 @@ struct AddBucketView: View {
             Spacer()
             
             Button(action: {
+                travelObj.bucketList.append(bucketInterface(id: travelObj.bucketList.count, bucketTitle: bucketTitleInput, bucketImg: "small_talk", bucketDesct: bucketDescInput, isComplete: false))
+//                let bucket = Bucket(id: 0, bucketTitle: "라라라라", bucketImg: "small_talk", bucketDesct: "", isComplete: false)
+
+//                bucketList.append(bucketInterface(id: 0, bucketTitle: bucketTitleInput, bucketImg: "small_talk", bucketDesct: bucketDescInput, isComplete: false))
+//                let enconder = JSONEncoder()
+//
+//                //encoded는 Data형
+//                if let encoded = try? enconder.encode(bucketList){
+//                    UserDefaults.standard.setValue(encoded, forKey: "bucketList")
+//                }
+                
+//                if let savedData = UserDefaults.standard.object(forKey: "bucketList") as? Data {
+//                    let decoder = JSONDecoder()
+//                    if let savedObject = try? decoder.decode([bucketInterface].self, from: savedData) {
+//                        print(savedObject) // Person(name: "jake", age: 20)
+//
+//                    }
+//                }
+//                print(travelObj.bucketList)
+                self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 Label(
                     title: { Text("버킷리스트 추가하기") },

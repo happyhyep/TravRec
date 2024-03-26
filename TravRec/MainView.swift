@@ -48,10 +48,9 @@ struct MainView: View {
     @State var categoryDropdownLabel:CategoryDropdown = .travel
      @State var sortStandard:sortStandardEnum = .date
     
-//    @State var travelList = [
-//        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
-//    ]
-    @AppStorage("travelList") var travelList: [travelInterface] = UserDefaults.standard.array(forKey: "travelList") ?? [travel0]
+    @State var travelList = [
+        travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
+    ]
 
     @State var sortedTravelList: [travelInterface] = []
     
@@ -125,7 +124,7 @@ struct MainView: View {
                             Button {
                                 if (sortStandard == .date) {
                                     sortStandard = .dictionary
-                                    sortedTravelList = $travelList.sorted {$0.title < $1.title}
+                                    sortedTravelList = travelList.sorted {$0.title < $1.title}
                                 } else {
                                     sortStandard = .date
                                 }
@@ -144,7 +143,7 @@ struct MainView: View {
                         }.padding(.horizontal, 30)
                         
                         if (categoryDropdownLabel == .travel) {
-                            List(sortStandard == .date ? $travelList : sortedTravelList, id: \.id) {
+                            List(sortStandard == .date ? travelList : sortedTravelList, id: \.id) {
                                 travelEl in
                                 NavigationLink(destination: TravelView(travelObj: travelEl), label: {
                                     HStack{
@@ -159,33 +158,8 @@ struct MainView: View {
                             .listStyle(.plain)
                             .padding(20)
                         } else if (categoryDropdownLabel == .happy) {
-//                            var happyList: [String] = []
-//
-//                            ForEach(travelList, id: \.id) { tra in
-//                                ForEach(tra.happyList, id: \.self) {
-//                                    hap in
-//                                    happyList.append(hap)
-//                                }
-//                            }
-////                            for trav in travelList {
-////                                for hap in trav.happyList {
-////                                    happyList.append(hap)
-////                                }
-////                            }
+
                             List(travelList, id: \.id) {
-                                                      
-                                
-//                                                            ForEach(travelList, id: \.id) { tra in
-//                                                                ForEach(tra.happyList, id: \.self) {
-//                                                                    hap in
-//                                                                    happyList.append(hap)
-//                                                                }
-//                                                            }
-                                //                            for trav in travelList {
-                                //                                for hap in trav.happyList {
-                                //                                    happyList.append(hap)
-                                //                                }
-                                //                            }
                                 travelEl in
                                 ForEach(travelEl.happyList, id: \.self) {
                                     hap in
@@ -194,7 +168,7 @@ struct MainView: View {
                                             Image(systemName: "hand.thumbsup").padding(.trailing, 10)
                                             VStack(alignment: .leading) {
                                                 Text(hap).font(.headline)
-                                                Text("\(travelEl.title)").font(.caption)
+                                                Text("\(travelEl.title) (\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
                                             }
                                         }
                                     })
@@ -204,7 +178,24 @@ struct MainView: View {
                             .listStyle(.plain)
                             .padding(20)
                         }  else if (categoryDropdownLabel == .sad) {
-                            
+                            List(travelList, id: \.id) {
+                                travelEl in
+                                ForEach(travelEl.sadList , id: \.self) {
+                                    sad in
+                                    NavigationLink(destination: TravelView(travelObj: travelEl), label: {
+                                        HStack{
+                                            Image(systemName: "hand.thumbsdown").padding(.trailing, 10)
+                                            VStack(alignment: .leading) {
+                                                Text(sad).font(.headline)
+                                                Text("\(travelEl.title) (\(travelEl.startDate) ~ \(travelEl.endDate))").font(.caption)
+                                            }
+                                        }
+                                    })
+                                }
+                                
+                            }
+                            .listStyle(.plain)
+                            .padding(20)
                         }
                         Spacer()
                     }

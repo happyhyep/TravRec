@@ -7,6 +7,8 @@ enum publicOrPrivateEnum: String {
 }
 
 struct AddTravelView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var title: String = ""
     @State var tempBucketList: [String] = []
     @State var tempBucketInput: String = ""
@@ -191,8 +193,9 @@ struct AddTravelView: View {
             }
             
             Spacer()
+            
             Button(action: {
-                
+                self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("작성 완료")
                     .font(.headline)
