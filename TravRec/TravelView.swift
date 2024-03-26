@@ -12,14 +12,15 @@ struct TravelView: View {
     
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
-        image = Image(uiImage: selectedImage)
+//        image = Image(uiImage: selectedImage)
+        travelObj.titleimg = Image(uiImage: selectedImage)
     }
     
     var body: some View {
 //        NavigationStack {
             VStack (alignment: .leading) {
                 HStack(alignment: .center){
-                    if let image = image {
+                    if let image = travelObj.titleimg {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -68,7 +69,7 @@ struct TravelView: View {
                                 }
                             })
                         }.listStyle(.plain)
-                            .frame(height: 200)
+                            .frame(height: 300)
                             .background(Color.clear)
                             .padding(20)
                         
@@ -99,8 +100,18 @@ struct TravelView: View {
                                 }
 
                         }.listStyle(.plain)
+                        .frame(height: 200)
                             .background(Color.clear)
                             .padding(20)
+                        
+                        HStack {
+                            Spacer()
+                            NavigationLink(destination: AddHappyView(travelObj: $travelObj)) {
+                                Text("좋았던 기억 추가")
+                            }.padding([.bottom, .trailing], 30)
+                            
+                        }
+                        Spacer()
                     }
                     .tabItem {
                         Image(systemName: "circle")
@@ -119,9 +130,18 @@ struct TravelView: View {
                                     }
                                 }
                         }.listStyle(.plain)
+                        .frame(height: 200)
                             .background(Color.clear)
                             .padding(20)
                         
+                        HStack {
+                            Spacer()
+                            NavigationLink(destination: AddSadView(travelObj: $travelObj)) {
+                                Text("아쉬웠던 기억 추가")
+                            }.padding([.bottom, .trailing], 30)
+                            
+                        }
+                        Spacer()
                     }
                     .tabItem {
                         Image(systemName: "circle")

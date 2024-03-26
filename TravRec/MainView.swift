@@ -48,7 +48,7 @@ struct MainView: View {
     @State var categoryDropdownLabel:CategoryDropdown = .travel
      @State var sortStandard:sortStandardEnum = .date
     
-    @State var travelList = [
+    @State var travelList: [travelInterface] = [
         travel0, travel1,travel2,travel3,travel4,travel5,travel6,travel7,travel8,travel9,travel10,travel11,travel12,travel13,travel14
     ]
 
@@ -201,7 +201,7 @@ struct MainView: View {
                     }
                     HStack(alignment: .bottom) {
                         Spacer()
-                        NavigationLink(destination: AddTravelView(), label: {
+                        NavigationLink(destination: AddTravelView(travelList: $travelList), label: {
                             Image(systemName: "square.and.pencil.circle.fill")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)

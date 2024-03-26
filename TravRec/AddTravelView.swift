@@ -7,11 +7,15 @@ enum publicOrPrivateEnum: String {
 }
 
 struct AddTravelView: View {
+    @Binding var travelList: [travelInterface]
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var title: String = ""
-    @State var tempBucketList: [String] = []
+    @State var tempBucketList: [bucketInterface] = []
     @State var tempBucketInput: String = ""
+    
+
     
     @State var isClickedStartDate: Bool = false
     @State var isClickedSecondDate: Bool = false
@@ -24,6 +28,7 @@ struct AddTravelView: View {
     @State var image: Image?
     
     @State var publicOrPrivate: publicOrPrivateEnum = .priv
+
     
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
@@ -132,21 +137,21 @@ struct AddTravelView: View {
                         VStack(alignment:.leading) {
                             Text("🪣 버킷리스트").font(.title3).padding(.bottom, 10)
                             Button(action: {
-                                tempBucketList.append("")
+                                tempBucketList.append(bucketInterface(id: tempBucketList.count, bucketTitle: "", bucketImg: "", bucketDesct: "", isComplete: false))
 
                             }, label: {
                                 Label("추가 +", systemImage: "text.append")
                             })
                             if (tempBucketList.count > 0) {
-                                List(tempBucketList, id: \.self) {
+                                List(tempBucketList, id: \.id) {
                                     bucketEn in
-                                    if (bucketEn == "") {
+                                    if (bucketEn.bucketTitle == "") {
                                         HStack {
                                             TextField("버킷리스트", text: $tempBucketInput)
                                                 .font(.caption)
                                                 .textFieldStyle(.roundedBorder)
                                             Button(action: {
-                                                tempBucketList[tempBucketList.count-1] = tempBucketInput
+                                                tempBucketList[tempBucketList.count-1].bucketTitle = tempBucketInput
                                                 tempBucketInput = ""
                                             }, label: {
                                                 Text("완료").font(.caption)
@@ -155,7 +160,7 @@ struct AddTravelView: View {
                                         }
                                     }
                                     else {
-                                        Text(bucketEn)
+                                        Text(bucketEn.bucketTitle)
                                     }
                                 }
                                 .listStyle(.plain)
@@ -166,7 +171,7 @@ struct AddTravelView: View {
                     }
                     HStack {
                         if (isClickedStartDate) {
-                            DatePicker(selection: $startDate, in: ...Date(), displayedComponents: .date) {
+                            DatePicker(selection: $startDate, displayedComponents: .date) {
                             }
                             .background(.white)
                             .padding(.trailing, 300)
@@ -177,7 +182,7 @@ struct AddTravelView: View {
                         }
                         
                         if (isClickedSecondDate) {
-                            DatePicker(selection: $secondDate, in: ...Date(), displayedComponents: .date) {
+                            DatePicker(selection: $secondDate, in: startDate..., displayedComponents: .date) {
                                 Text("여행 마지막 날짜를 선택하세요")
                             }
                             .background(.white)
@@ -195,6 +200,10 @@ struct AddTravelView: View {
             Spacer()
             
             Button(action: {
+//                for i in tempBucketList {
+//                    tempBucketInterface.append(bucketInterface(id: Int(tempBucketList.firstIndex(of: i)), bucketTitle: i, bucketImg: "", bucketDesct: "", isComplete: false))
+//                }
+                travelList.append(travelInterface(id: UUID(), title: title, startDate: dateToString(date: startDate), endDate: dateToString(date: secondDate), isPublic: publicOrPrivate == .pub ? true : false, titleimg: Image(""), bucketList: tempBucketList, happyList: [], sadList: []))
                 self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("작성 완료")
@@ -218,7 +227,3 @@ struct AddTravelView: View {
     
 }
 
-
-#Preview {
-    AddTravelView()
-}

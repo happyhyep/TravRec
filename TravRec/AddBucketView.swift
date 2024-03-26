@@ -96,7 +96,7 @@ struct AddBucketView: View {
             Spacer()
             
             Button(action: {
-                travelObj.bucketList.append(bucketInterface(id: travelObj.bucketList.count, bucketTitle: bucketTitleInput, bucketImg: "small_talk", bucketDesct: bucketDescInput, isComplete: false))
+                travelObj.bucketList.append(bucketInterface(id: travelObj.bucketList.count, bucketTitle: bucketTitleInput, bucketImg: "", bucketDesct: bucketDescInput, isComplete: false))
 //                let bucket = Bucket(id: 0, bucketTitle: "라라라라", bucketImg: "small_talk", bucketDesct: "", isComplete: false)
 
 //                bucketList.append(bucketInterface(id: 0, bucketTitle: bucketTitleInput, bucketImg: "small_talk", bucketDesct: bucketDescInput, isComplete: false))

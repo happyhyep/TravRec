@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct CommunityView: View {
-    var userList: [userInterface] = [user1, user2, user3]
+    @State var userList: [userInterface] = [user1, user2, user3]
     @State var isBookmarkClicked: [Bool] = [false, false, false]
     
     var body: some View {
         ScrollView {
             Divider()
             
-            ForEach(userList, id: \.id) {
-                user in
+            ForEach($userList, id: \.id) {
+                $user in
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -25,10 +25,21 @@ struct CommunityView: View {
                                 .font(.caption)
                         }
                         Spacer()
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20)
+                        Button(action: {
+                            isBookmarkClicked[$user.id] = !isBookmarkClicked[$user.id]
+                        }, label: {
+                            isBookmarkClicked[$user.id] ?
+                            Image(systemName: "bookmark.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20)
+                            :
+                            Image(systemName: "bookmark")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20)
+                        })
+                        
                     }
                     
                     
