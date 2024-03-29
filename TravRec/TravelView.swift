@@ -10,6 +10,17 @@ struct TravelView: View {
     @State var selectedUIImage: UIImage?
     @State var image: Image?
     
+    // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+    func removeHappy(at offsets: IndexSet) {
+        travelObj.happyList.remove(atOffsets: offsets)
+    }
+    func removeSad(at offsets: IndexSet) {
+        travelObj.sadList.remove(atOffsets: offsets)
+    }
+    func removeBucket(at offsets: IndexSet) {
+        travelObj.bucketList.remove(atOffsets: offsets)
+    }
+    
     func loadImage() {
         guard let selectedImage = selectedUIImage else { return }
 //        image = Image(uiImage: selectedImage)
@@ -58,16 +69,26 @@ struct TravelView: View {
                 TabView {
                     VStack(alignment: .leading) {
                         Text("버킷리스트").font(.largeTitle).padding(.leading,40).padding(.top, 20)
-                        List($travelObj.bucketList, id: \.id) {
-                            $bucketEl in
-                            NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl), label: {
-                                HStack{
-                                    bucketEl.isComplete ? Image(systemName: "checkmark.circle.fill").padding(.trailing, 10) : Image(systemName: "checkmark.circle").padding(.trailing, 10)
-                                    VStack(alignment: .leading) {
-                                        Text(bucketEl.bucketTitle).font(.headline)
+                        List {
+                            ForEach($travelObj.bucketList, id: \.id) {
+                                $bucketEl in
+                                NavigationLink(destination: BucketDetailView(bucketObj: $bucketEl, travelObj: $travelObj), label: {
+                                    HStack{
+                                        bucketEl.isComplete ? Image(systemName: "checkmark.circle.fill").padding(.trailing, 10) : Image(systemName: "checkmark.circle").padding(.trailing, 10)
+                                        VStack(alignment: .leading) {
+                                            Text(bucketEl.bucketTitle).font(.headline)
+                                        }
+                                        Spacer()
+                                        
+                                        if (bucketEl.satisfactLevel != nil)
+                                        {
+                                            Text("만족도 : \(bucketEl.satisfactLevel!).0 / 5.0").font(.caption)
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }
+                            // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+                            .onDelete(perform: removeBucket)
                         }.listStyle(.plain)
                             .frame(height: 300)
                             .background(Color.clear)
@@ -90,19 +111,25 @@ struct TravelView: View {
                     
                     VStack(alignment: .leading) {
                         Text("좋았던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
-                        List($travelObj.happyList, id: \.self) {
-                            $bucketEl in
+                        List {
+                            ForEach($travelObj.happyList, id: \.self) {
+                                $bucketEl in
                                 HStack{
                                     Image(systemName: "hand.thumbsup").padding(.trailing, 10)
                                     VStack(alignment: .leading) {
                                         Text(bucketEl).font(.headline)
                                     }
                                 }
-
-                        }.listStyle(.plain)
+                                
+                            }
+                            // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+                            .onDelete(perform: removeHappy)
+                        }
+                        .listStyle(.plain)
                         .frame(height: 200)
-                            .background(Color.clear)
-                            .padding(20)
+                        .background(Color.clear)
+                        .padding(20)
+                        
                         
                         HStack {
                             Spacer()
@@ -121,15 +148,20 @@ struct TravelView: View {
                     
                     VStack(alignment: .leading) {
                         Text("아쉬웠던 기억").font(.largeTitle).padding(.leading,40).padding(.top, 20)
-                        List($travelObj.sadList, id: \.self) {
+                        List {
+                        ForEach($travelObj.sadList, id: \.self) {
                             $bucketEl in
-                                HStack{
-                                    Image(systemName: "hand.thumbsdown").padding(.trailing, 10)
-                                    VStack(alignment: .leading) {
-                                        Text(bucketEl).font(.headline)
-                                    }
+                            HStack{
+                                Image(systemName: "hand.thumbsdown").padding(.trailing, 10)
+                                VStack(alignment: .leading) {
+                                    Text(bucketEl).font(.headline)
                                 }
-                        }.listStyle(.plain)
+                            }
+                        }                           
+                        // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+                        .onDelete(perform: removeSad)
+                    }
+                        .listStyle(.plain)
                         .frame(height: 200)
                             .background(Color.clear)
                             .padding(20)
@@ -149,8 +181,8 @@ struct TravelView: View {
                 }
                 .padding(.bottom, 20)
                 
-                // TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
-                //            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+//                 TODO playground라서 style 적용 불가, Xcode에서는 주석 해제 필요
+//                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 
             }
 //        }

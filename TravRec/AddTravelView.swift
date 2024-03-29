@@ -135,7 +135,7 @@ struct AddTravelView: View {
                         }
                         
                         VStack(alignment:.leading) {
-                            Text("🪣 버킷리스트").font(.title3).padding(.bottom, 10)
+                            Text("📝 버킷리스트").font(.title3).padding(.bottom, 10)
                             Button(action: {
                                 tempBucketList.append(bucketInterface(id: tempBucketList.count, bucketTitle: "", bucketImg: "", bucketDesct: "", isComplete: false))
 

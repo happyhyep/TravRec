@@ -54,7 +54,6 @@
 		9200B8D42BABD805005085DC /* TravRecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITests.swift; sourceTree = "<group>"; };
 		9200B8D62BABD805005085DC /* TravRecUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravRecUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9200B8E32BABD8E9005085DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		9200B8E72BABD960005085DC /* travrec_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travrec_logo.png; sourceTree = "<group>"; };
 		9200B8E82BAD0E90005085DC /* TravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelView.swift; sourceTree = "<group>"; };
 		9200B8EA2BAD0EA3005085DC /* BucketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailView.swift; sourceTree = "<group>"; };
 		9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
@@ -119,7 +118,6 @@
 				9200B8F02BAD0ECC005085DC /* lib */,
 				9200B8B92BABD801005085DC /* MyApp.swift */,
 				9200B8BD2BABD804005085DC /* Assets.xcassets */,
-				9200B8E72BABD960005085DC /* travrec_logo.png */,
 				9200B8BF2BABD804005085DC /* Preview Content */,
 				9200B8E32BABD8E9005085DC /* MainView.swift */,
 				9200B8E82BAD0E90005085DC /* TravelView.swift */,
@@ -128,7 +126,6 @@
 				92E61D322BB30C3200AF0DBC /* AddHappyView.swift */,
 				92E61D342BB30C4500AF0DBC /* AddSadView.swift */,
 				9200B8EC2BAD0EB5005085DC /* AddTravelView.swift */,
-				9200B8F12BADE5FE005085DC /* ImagePicker.swift */,
 				9200B8F52BB06D6A005085DC /* CommunityView.swift */,
 			);
 			path = TravRec;
@@ -170,6 +167,7 @@
 		92E61D2F2BB30C0700AF0DBC /* worker */ = {
 			isa = PBXGroup;
 			children = (
+				9200B8F12BADE5FE005085DC /* ImagePicker.swift */,
 				92E61D302BB30C1500AF0DBC /* dateToString.swift */,
 			);
 			path = worker;

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BucketDetailView: View {
     @Binding var bucketObj: bucketInterface
+    @Binding var travelObj: travelInterface
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -46,6 +47,17 @@ struct BucketDetailView: View {
                 bucketObj.bucketDesct != "" ? Text("\(bucketObj.bucketDesct)") :
                 Text("버킷리스트에 대한 상세 설명이 들어갈 곳입니다. \n하지만 '\(bucketObj.bucketTitle)' 버킷리스트의 상세 설명이 존재하지 않습니다.")
             }
+//            Button(action: {
+//                for i in travelObj.bucketList {
+//                    if travelObj.bucketList[i] == bucketObj
+//                    {
+//                        print(travelObj.bucketList[i])
+//                        travelObj.bucketList[i].
+//                    }
+//                }
+//            }, label: {
+//                Text("이 버킷리스트 삭제하기")
+//            })
             
             if (bucketObj.isComplete) {
                 if (bucketObj.satisfactLevel == nil) {

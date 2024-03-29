@@ -62,7 +62,7 @@ struct MainView: View {
        
                 VStack (alignment: .center) {
                     HStack {
-                        Image("travrec_logo")
+                        Image("images/travrec_logo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200)
@@ -143,7 +143,7 @@ struct MainView: View {
                         }.padding(.horizontal, 30)
                         
                         if (categoryDropdownLabel == .travel) {
-                            List(sortStandard == .date ? travelList : sortedTravelList, id: \.id) {
+                            List(sortStandard == .date ? travelList.reversed() : sortedTravelList, id: \.id) {
                                 travelEl in
                                 NavigationLink(destination: TravelView(travelObj: travelEl), label: {
                                     HStack{
@@ -210,7 +210,7 @@ struct MainView: View {
                                 .foregroundColor(Color(.systemIndigo))
                                 .zIndex(10)
                         })
-                        .padding(.top, 700)
+                        .padding(.top, 480)
                         .padding(.trailing, 30)
                     }
                 }
